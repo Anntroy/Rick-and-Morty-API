@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Gorditas&family=Inconsolata:wght@300&display=swap');
+
+/* Main */
+* {
+    font-family: 'Inconsolata', monospace;
+    color: var(--dark);
+}
+
+html {
+    font-size: 62.5%; /* 1 rem == 10 px*/
+}
+
+:root {
+    --light-dark: rgb(201,192,187);
+    --middle-dark:  #a5a7aa;
+    --white-title: rgb(248, 246, 246);
+    --red-error: rgb(173, 32, 32);
+    --dark: #282c34;
+}
+
+/* HEADER AREA */
+
+.header{
+    height: 14vh;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 0 6px;
+    background-color: rgba(98, 116, 81, 0.86);
+}
+
+.button {
+    min-height: 44px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    background-color: transparent;
+}
+
+.header__figure {
+    background-image: url('/img/logo.png');
+    height: 14vh;
+    width: 50vh;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+/* MAIN AREA */
+
+.body {
+    background-image: url('/img/forest.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #464646;
+}
+
+.main {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    background-color: rgba(98, 116, 81, 0.3);
+}
+
+/* ASIDE AREA */
+
+.aside {
+    height: 100vh;
+    width: 40vh;
+    font-size: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    margin-top: 14vh;
+    overflow-y: scroll;
+    box-shadow: inset 0 0 6px;
+    background-color: rgba(98, 116, 81, 0.86);
+
+}
+
+.aside__button {
+    height: 14vh;
+    width: 40vh;
+}
+
+::-webkit-scrollbar {
+    width: 0.8rem;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 1rem;
+    background: linear-gradient(45deg, rgb(149,69,53),rgb(98, 116, 81), rgb(149,69,53));
+    box-shadow: inset 0 0 6px;
+}
