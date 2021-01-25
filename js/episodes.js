@@ -4,7 +4,7 @@ const fetchEpisodes = () => {
     axios.get("https://rickandmortyapi.com/api/episode")
     .then((response) => {
         displayEpisodes(response);
-        displayEpisodesMain(response)
+        displayEpisodeCharacters(response)
     })
     .catch(error => console.error(error));
 
@@ -18,7 +18,7 @@ const displayEpisodes = (response) => {
 		.map((episode) => {
             return `
                 <li class="episode" id="${episode.id}">
-                <p>Episode ${episode.id}: ${episode.name}</p>
+                <p class="episode__p">Episode ${episode.id}: ${episode.name}</p>
                 </li>`;
 		})
         .join('');
