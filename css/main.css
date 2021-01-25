@@ -65,6 +65,7 @@ html {
     height: 100vh;
     overflow: auto;
     background-color: rgba(98, 116, 81, 0.3);
+    overflow-y: scroll;
 }
 
 /* ASIDE AREA */
@@ -86,9 +87,27 @@ html {
 
 }
 
-.aside__button {
-    height: 14vh;
-    width: 40vh;
+.aside__ul {
+    height: 100vh;
+    width: 33vh;
+    margin-left: -1.5rem;
+}
+
+.episode {
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    list-style-type: none;
+    transition: 0.2s;
+
+    /* make the list items unselectable */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
 }
 
 ::-webkit-scrollbar {
@@ -97,6 +116,44 @@ html {
 
 ::-webkit-scrollbar-thumb {
     border-radius: 1rem;
-    background: linear-gradient(45deg, rgb(149,69,53),rgb(98, 116, 81), rgb(149,69,53));
+    background: linear-gradient(45deg, rgb(149,69,53),rgba(0,158,158, 0.6));
     box-shadow: inset 0 0 6px;
 }
+
+
+/* SECTION AREA */
+
+.section {
+    font-size: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    height: auto;
+    top: 6vh;
+    left: 46vh;
+    right: 6vh;
+    z-index: 1;
+    margin-top: 14vh;
+    background: rgba(98, 116, 81, 0.86);  /* fallback for old browsers */
+    background: linear-gradient(to right,rgba(98, 116, 81, 0.6), rgba(0,158,158, 0.6), rgba(149,69,53, 0.4)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    box-shadow: inset 0 0 6px;
+    border-radius: 15px;
+    padding: 15px;
+}
+
+.section__article-div {
+    background-color: rgba(219, 226, 226, 0.6);
+    border-radius: 4px;
+    transition: transform 0.3s ease-in-out;
+    padding-bottom: 10px;
+}
+
+.section__article {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-auto-rows: minmax(200px, auto);
+    gap: 10px;
+    padding: 10px;
+    grid-auto-flow: dense;
+}
+
