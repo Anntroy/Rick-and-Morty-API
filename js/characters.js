@@ -2,19 +2,19 @@ const makeCharacter = (cid, cname, cimage, cstatus, cspecies) => ({cid, cname, c
 let charactersArray = [];
 let articleString = '';
 
-const displayEpisodeCharacters = (response) => {
+const displayEpisodeCharacters = (response, id) => {
 
     console.log(response)
 
-    const htmlString = response.data.results[0].characters
+    const htmlString = response.data.results[id].characters
     .forEach((characters) => {
         axios.get(`${characters}`)
-        .then((characters) => getCharacter(response, characters))
+        .then((characters) => getCharacter(response, characters, id))
         .catch(error => console.error(error));
     })
 };
 
-const getCharacter = (response, characters) => {
+const getCharacter = (response, characters, id) => {
 
     const character = makeCharacter(characters.data.id, characters.data.name, characters.data.image, characters.data.status, characters.data.species);
     articleString += `<div class="section__article-div" id="${characters.data.id}">
@@ -27,7 +27,7 @@ const getCharacter = (response, characters) => {
                         </div>
                     </div>`
     section.innerHTML = `
-        <h2 class="section__h2">${response.data.results[0].name}</h2>
-        <p class="section__p">${response.data.results[0].air_date}</p>
+        <h2 class="section__h2">${response.data.results[id].name}</h2>
+        <p class="section__p">${response.data.results[id].air_date}</p>
         <article class="section__article" id="sectionArticle">${articleString}</article>`;
 }

@@ -4,7 +4,6 @@ const fetchEpisodes = () => {
     axios.get("https://rickandmortyapi.com/api/episode")
     .then((response) => {
         displayEpisodes(response);
-        displayEpisodeCharacters(response)
     })
     .catch(error => console.error(error));
 
@@ -24,4 +23,21 @@ const displayEpisodes = (response) => {
         .join('');
         episodesList.innerHTML = htmlString;
 
+};
+
+episodesList.addEventListener("click", openEpisodeCharacters);
+function openEpisodeCharacters(e){
+
+    section.innerHTML = '';
+
+    setTimeout(function(){
+        axios.get("https://rickandmortyapi.com/api/episode")
+        .then((response) => {
+            displayEpisodeCharacters(response, e.target.parentNode.id - 1)
+        })
+        .catch(error => console.error(error));
+    }, 1000);
+
+
+    console.log('hello', e.target.parentNode.id)
 };
