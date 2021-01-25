@@ -1,9 +1,10 @@
 
 const fetchEpisodes = () => {
+
     axios.get("https://rickandmortyapi.com/api/episode")
     .then((response) => {
         displayEpisodes(response);
-        // displayEpisodesMain(response)
+        displayEpisodesMain(response)
     })
     .catch(error => console.error(error));
 
@@ -12,7 +13,6 @@ const fetchEpisodes = () => {
 fetchEpisodes();
 
 const displayEpisodes = (response) => {
-    console.log(response)
 
 	const htmlString = response.data.results
 		.map((episode) => {
@@ -23,4 +23,5 @@ const displayEpisodes = (response) => {
 		})
         .join('');
         episodesList.innerHTML = htmlString;
+
 };
