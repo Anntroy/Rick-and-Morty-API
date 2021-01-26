@@ -1,7 +1,7 @@
 let singleCharacterString = '';
 
 section.addEventListener('click', openSingleCharacter);
-// sectionCharacter.addEventListener('click', openEpisodeCharacters)
+sectionLocation.addEventListener('click', openSingleCharacter);
 
 function openSingleCharacter(e){
 
@@ -22,6 +22,7 @@ function openSingleCharacter(e){
 const displaySingleCharacter = (response) => {
 
     section.classList.add('hidden');
+    sectionLocation.classList.add('hidden');
     sectionCharacter.classList.remove('hidden');
 
 
@@ -35,12 +36,14 @@ const displaySingleCharacter = (response) => {
 
     const getEpisodes = (response, episode) => {
 
+        console.log(response.data.origin.url)
+
         singleCharacterString += `<button class="button display_episodes-button" data-id="${episode.data.id}"><h3>Episode: ${episode.data.id}</h3><p>${episode.data.episode}</p></button>`
         sectionCharacter.innerHTML = `
         <article class="display_character">
             <figure class="photo" style="background-image: url('${response.data.image}');"></figure>
             <h3 class="section__h3 display_character__h3">${response.data.name} </h3>
-            <p class="section__p display_character__p">${response.data.species} | ${response.data.status} | ${response.data.gender} | ${response.data.origin.name}</p>
+            <p class="section__p display_character__p">${response.data.species} | ${response.data.status} | ${response.data.gender} | <span data-location="${response.data.origin.url}">${response.data.origin.name}</span></p>
             <hr>
         </article>
         <article class="display_episodes">${singleCharacterString}</article>`;

@@ -18,7 +18,6 @@ const displayEpisodes = (response) => {
             return `
                 <button class="episode button" data-id="${episode.id}">Episode ${episode.id}: ${episode.name}
                 </button>`;
-                // <p class="episode__p"></p>
 		})
         .join('');
         episodesList.innerHTML = htmlString;

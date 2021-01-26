@@ -5,17 +5,19 @@ episodesList.addEventListener("click", openEpisodeCharacters);
 function openEpisodeCharacters(e){
 
     sectionCharacter.classList.add('hidden');
-
+    sectionLocation.classList.add('hidden');
     section.innerHTML = '';
 
     setTimeout(function(){
-        axios.get("https://rickandmortyapi.com/api/episode")
-        .then((response) => {
-            section.classList.remove('hidden');
-            articleString = '';
-            displayEpisodeCharacters(response, e.target.dataset.id - 1);
-        })
-        .catch(error => console.error(error));
+        if(e.target.dataset.id != undefined){
+            axios.get("https://rickandmortyapi.com/api/episode")
+            .then((response) => {
+                section.classList.remove('hidden');
+                articleString = '';
+                displayEpisodeCharacters(response, e.target.dataset.id - 1);
+            })
+            .catch(error => console.error(error));
+        }
     }, 10);
 
 };
@@ -31,6 +33,8 @@ const displayEpisodeCharacters = (response, id) => {
 };
 
 const getCharacter = (response, characters, id) => {
+
+    // console.log(characters, id)
 
     articleString += `<div class="section__article-div" data-id="${characters.data.id}">
                         <div class="flip-card-inner">
