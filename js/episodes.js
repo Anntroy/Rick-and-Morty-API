@@ -26,6 +26,7 @@ const displayEpisodes = (response) => {
 };
 
 episodesList.addEventListener("click", openEpisodeCharacters);
+
 function openEpisodeCharacters(e){
 
     section.innerHTML = '';
@@ -33,11 +34,11 @@ function openEpisodeCharacters(e){
     setTimeout(function(){
         axios.get("https://rickandmortyapi.com/api/episode")
         .then((response) => {
-            displayEpisodeCharacters(response, e.target.parentNode.id - 1)
+            section.classList.remove('hidden');
+            articleString = '';
+            displayEpisodeCharacters(response, e.target.parentNode.id - 1);
         })
         .catch(error => console.error(error));
-    }, 1000);
+    }, 10);
 
-
-    console.log('hello', e.target.parentNode.id)
 };
