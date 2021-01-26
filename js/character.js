@@ -7,6 +7,8 @@ function openSingleCharacter(e){
 
     singleCharacterString ='';
 
+    console.log(e.target)
+
     setTimeout(function(){
         if(e.target.parentNode.parentNode.dataset.id != undefined){
             axios.get(`https://rickandmortyapi.com/api/character/${e.target.parentNode.parentNode.dataset.id} `)
@@ -15,7 +17,7 @@ function openSingleCharacter(e){
             })
             .catch(error => console.error(error));
         }
-    }, 10);
+    }, 0);
 
 };
 
@@ -35,8 +37,6 @@ const displaySingleCharacter = (response) => {
 }
 
     const getEpisodes = (response, episode) => {
-
-        console.log(response.data.origin.url)
 
         singleCharacterString += `<button class="button display_episodes-button" data-id="${episode.data.id}"><h3>Episode: ${episode.data.id}</h3><p>${episode.data.episode}</p></button>`
         sectionCharacter.innerHTML = `

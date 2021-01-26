@@ -30,6 +30,33 @@ html {
     background-color: rgba(128, 128, 16, 0.7);
 }
 
+.button {
+    height: 9vh;
+    width: auto;
+    min-height: 44px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    background-color: transparent;
+}
+
+.header__button {
+    background-image: url('/img/cara.png');
+    height: 8.5vh;
+    width: 8.5vh;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 50px;
+    box-shadow: inset 0 0 6px;
+    background-blend-mode: overlay;
+    background-color:rgb(108, 129, 89);
+    position: fixed;
+    top: 3vh;
+    left: 3vh;
+    z-index: 1;
+
+}
+
 .header__figure {
     background-image: url('/img/logo.png');
     height: 14vh;
@@ -48,7 +75,7 @@ html {
     background-size: cover;
     background-color: #464646;
     /* background-color: rgba(98, 116, 81, 0.3);
-    background-blend-mode: overlay; */
+    background-: overlay; */
 }
 
 .main {
@@ -63,7 +90,7 @@ html {
 /* ASIDE AREA */
 
 .aside {
-    height: 100vh;
+    height: 83.5vh;
     width: 40vh;
     display: flex;
     flex-direction: column;
@@ -73,10 +100,11 @@ html {
     z-index: 1;
     margin-top: 14vh;
     overflow-y: scroll;
+    overflow-x: hidden;
     box-shadow: inset 0 0 6px;
     background-color: rgba(0,158,158, 0.8);
     padding-top: 18px;
-
+    margin-bottom: 3.5vh;
 }
 
 .episode {
@@ -164,6 +192,8 @@ html {
 .section__article-div {
     background-color: transparent;
     border-radius: 4px;
+    width: 100%;
+    height: 100%;
 }
 
 .flip-card-inner {
@@ -177,6 +207,7 @@ html {
 
 .section__article-div:hover .flip-card-inner {
     transform: rotateY(180deg);
+    cursor: pointer;
 }
 
 .flip-card-front, .flip-card-back {
@@ -259,16 +290,6 @@ span:hover {
     overflow-y: scroll;
     overflow-x: hidden;
     padding: 15px;
-}
-
-.button {
-    height: 9vh;
-    width: auto;
-    min-height: 44px;
-    border: none;
-    cursor: pointer;
-    outline: none;
-    background-color: transparent;
 }
 
 .display_episodes-button {

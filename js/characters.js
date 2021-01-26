@@ -18,7 +18,7 @@ function openEpisodeCharacters(e){
             })
             .catch(error => console.error(error));
         }
-    }, 10);
+    }, 0);
 
 };
 
