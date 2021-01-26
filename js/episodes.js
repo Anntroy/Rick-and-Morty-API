@@ -29,6 +29,8 @@ episodesList.addEventListener("click", openEpisodeCharacters);
 
 function openEpisodeCharacters(e){
 
+    sectionCharacter.classList.add('hidden');
+
     section.innerHTML = '';
 
     setTimeout(function(){
