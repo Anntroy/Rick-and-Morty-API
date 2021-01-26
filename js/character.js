@@ -1,22 +1,25 @@
 let singleCharacterString = '';
 
 section.addEventListener('click', openSingleCharacter);
+// sectionCharacter.addEventListener('click', openEpisodeCharacters)
 
 function openSingleCharacter(e){
 
+    singleCharacterString ='';
+
     setTimeout(function(){
-        console.log(e.target.parentNode.parentNode.id)
-        axios.get(`https://rickandmortyapi.com/api/character/${e.target.parentNode.parentNode.id} `)
-        .then((response) => {
-            displaySingleCharacter(response);
-        })
-        .catch(error => console.error(error));
+        if(e.target.parentNode.parentNode.dataset.id != undefined){
+            axios.get(`https://rickandmortyapi.com/api/character/${e.target.parentNode.parentNode.dataset.id} `)
+            .then((response) => {
+                displaySingleCharacter(response);
+            })
+            .catch(error => console.error(error));
+        }
     }, 10);
 
 };
 
 const displaySingleCharacter = (response) => {
-    console.log('aqui');
 
     section.classList.add('hidden');
     sectionCharacter.classList.remove('hidden');
@@ -31,15 +34,15 @@ const displaySingleCharacter = (response) => {
 }
 
     const getEpisodes = (response, episode) => {
-        console.log(episode.data.id)
 
-        singleCharacterString += `<button class="button display_episodes-button"><h3>Episode: ${episode.data.id}</h3><p>${episode.data.episode}</p></button>`
+        singleCharacterString += `<button class="button display_episodes-button" data-id="${episode.data.id}"><h3>Episode: ${episode.data.id}</h3><p>${episode.data.episode}</p></button>`
         sectionCharacter.innerHTML = `
         <article class="display_character">
             <figure class="photo" style="background-image: url('${response.data.image}');"></figure>
-            <h2 class="section__h2">${response.data.name} </h2>
-            <p class="section__p">${response.data.species} | ${response.data.status} | ${response.data.gender} | ${response.data.origin.name}</p>
+            <h3 class="section__h3 display_character__h3">${response.data.name} </h3>
+            <p class="section__p display_character__p">${response.data.species} | ${response.data.status} | ${response.data.gender} | ${response.data.origin.name}</p>
             <hr>
         </article>
         <article class="display_episodes">${singleCharacterString}</article>`;
+
     }

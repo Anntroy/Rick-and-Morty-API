@@ -16,31 +16,11 @@ const displayEpisodes = (response) => {
 	const htmlString = response.data.results
 		.map((episode) => {
             return `
-                <li class="episode" id="${episode.id}">
-                <p class="episode__p">Episode ${episode.id}: ${episode.name}</p>
-                </li>`;
+                <button class="episode button" data-id="${episode.id}">Episode ${episode.id}: ${episode.name}
+                </button>`;
+                // <p class="episode__p"></p>
 		})
         .join('');
         episodesList.innerHTML = htmlString;
-
-};
-
-episodesList.addEventListener("click", openEpisodeCharacters);
-
-function openEpisodeCharacters(e){
-
-    sectionCharacter.classList.add('hidden');
-
-    section.innerHTML = '';
-
-    setTimeout(function(){
-        axios.get("https://rickandmortyapi.com/api/episode")
-        .then((response) => {
-            section.classList.remove('hidden');
-            articleString = '';
-            displayEpisodeCharacters(response, e.target.parentNode.id - 1);
-        })
-        .catch(error => console.error(error));
-    }, 10);
 
 };

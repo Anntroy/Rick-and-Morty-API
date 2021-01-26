@@ -1,26 +1,24 @@
-let articleString = '';
+let locationString = '';
 
-episodesList.addEventListener("click", openEpisodeCharacters);
+sectionCharacter.addEventListener("click", openLocationCharacters);
 
-function openEpisodeCharacters(e){
+function openLocationCharacters(e){
 
     sectionCharacter.classList.add('hidden');
 
-    section.innerHTML = '';
-
     setTimeout(function(){
-        axios.get("https://rickandmortyapi.com/api/episode")
+        axios.get("https://rickandmortyapi.com/api/Location")
         .then((response) => {
             section.classList.remove('hidden');
             articleString = '';
-            displayEpisodeCharacters(response, e.target.dataset.id - 1);
+            displayLocationCharacters(response, e.target.parentNode.id - 1);
         })
         .catch(error => console.error(error));
     }, 10);
 
 };
 
-const displayEpisodeCharacters = (response, id) => {
+const displayLocationCharacters = (response, id) => {
 
     response.data.results[id].characters
     .forEach((characters) => {

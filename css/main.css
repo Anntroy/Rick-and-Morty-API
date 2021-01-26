@@ -75,35 +75,23 @@ html {
     overflow-y: scroll;
     box-shadow: inset 0 0 6px;
     background-color: rgba(0,158,158, 0.8);
+    padding-top: 18px;
 
-}
-
-.aside__ul {
-    height: 100vh;
-    width: 33vh;
-    margin-left: -1.5rem;
-    margin-top: 2.2rem;
 }
 
 .episode {
-    display: flex;
-    align-items: center;
     cursor: pointer;
-    list-style-type: none;
-    transition: 0.2s;
-
-    /* make the list items unselectable */
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-
+    width: 100%;
+    height: 100%;
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin: 10px 0 0 10px;
+    text-align: start;
+    padding: 0 15px;
 }
 
-.episode__p {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin: 10px 0;
+.episode:hover {
+    color: rgba(149,69,53, 0.85);
 }
 
 ::-webkit-scrollbar {
@@ -144,8 +132,8 @@ html {
 
 .section__h2 {
     font-size: 2.4rem;
+    margin: 2rem auto;
     font-weight: 700;
-    margin: 3.5rem auto 2rem auto;
 }
 
 .section__p {
@@ -233,6 +221,10 @@ html {
     overflow: auto;
 }
 
+.display_character__h3 {
+    margin: 3rem auto 2rem auto;
+}
+
 .photo {
     width: 24vh;
     height: 28vh;
@@ -284,6 +276,7 @@ html {
     font-weight: 700;
     text-align: start;
     margin: 10px 0;
+    letter-spacing: -1px;
 }
 
 .button p {
