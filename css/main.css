@@ -30,6 +30,33 @@ html {
     background-color: rgba(128, 128, 16, 0.7);
 }
 
+.button {
+    height: 9vh;
+    width: auto;
+    min-height: 44px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    background-color: transparent;
+}
+
+.header__button {
+    background-image: url('/img/cara.png');
+    height: 8.5vh;
+    width: 8.5vh;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 50px;
+    box-shadow: inset 0 0 6px;
+    background-blend-mode: overlay;
+    background-color:rgb(108, 129, 89);
+    position: fixed;
+    top: 3vh;
+    left: 3vh;
+    z-index: 1;
+
+}
+
 .header__figure {
     background-image: url('/img/logo.png');
     height: 14vh;
@@ -47,6 +74,8 @@ html {
     background-attachment: fixed;
     background-size: cover;
     background-color: #464646;
+    /* background-color: rgba(98, 116, 81, 0.3);
+    background-: overlay; */
 }
 
 .main {
@@ -61,7 +90,7 @@ html {
 /* ASIDE AREA */
 
 .aside {
-    height: 100vh;
+    height: 83.5vh;
     width: 40vh;
     display: flex;
     flex-direction: column;
@@ -71,37 +100,26 @@ html {
     z-index: 1;
     margin-top: 14vh;
     overflow-y: scroll;
+    overflow-x: hidden;
     box-shadow: inset 0 0 6px;
     background-color: rgba(0,158,158, 0.8);
-
-}
-
-.aside__ul {
-    height: 100vh;
-    width: 33vh;
-    margin-left: -1.5rem;
-    margin-top: 2.2rem;
+    padding-top: 18px;
+    margin-bottom: 3.5vh;
 }
 
 .episode {
-    display: flex;
-    align-items: center;
     cursor: pointer;
-    list-style-type: none;
-    transition: 0.2s;
-
-    /* make the list items unselectable */
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-
+    width: 100%;
+    height: 100%;
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin: 10px 0 0 10px;
+    text-align: start;
+    padding: 0 15px;
 }
 
-.episode__p {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin: 10px 0;
+.episode:hover {
+    color: rgba(149,69,53, 0.85);
 }
 
 ::-webkit-scrollbar {
@@ -122,7 +140,7 @@ html {
     display: flex;
     flex-direction: column;
     position: fixed;
-    height: auto;
+    height: 75vh;
     top: 6vh;
     left: 46vh;
     right: 6vh;
@@ -132,19 +150,23 @@ html {
     background: linear-gradient(to right, rgba(149,69,53, 0.8),rgba(105, 105, 11, 0.8)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     box-shadow: inset 0 0 6px;
     border-radius: 15px;
-    padding: 10px;
+    padding: 15px 10px 17px 10px;
     min-width: 180px;
+}
+
+.hidden {
+    display: none;
 }
 
 .section__h2 {
     font-size: 2.4rem;
+    margin: 2rem auto;
     font-weight: 700;
-    margin: 1rem auto;
 }
 
 .section__p {
     font-size: 1.8rem;
-    margin: 0 auto;
+    margin: 0 auto 1.2rem auto;
     font-weight: 600;
     letter-spacing: -1px;
 }
@@ -163,11 +185,15 @@ html {
     gap: 15px;
     padding: 15px 5px;
     grid-auto-flow: dense;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .section__article-div {
     background-color: transparent;
     border-radius: 4px;
+    width: 100%;
+    height: 100%;
 }
 
 .flip-card-inner {
@@ -181,6 +207,7 @@ html {
 
 .section__article-div:hover .flip-card-inner {
     transform: rotateY(180deg);
+    cursor: pointer;
 }
 
 .flip-card-front, .flip-card-back {
@@ -209,6 +236,85 @@ html {
 
 .flip-card-back {
     background-color: rgba(151, 151, 19, 0.6);
-    color: white;
     transform: rotateY(180deg);
+    padding: 0 3px;
+}
+
+/* SINGLE CHARACTER SECTION AREA */
+
+.sectionCharacter {
+    background-color: rgba(151, 151, 19);
+    background: linear-gradient(to right, rgba(105, 105, 11, 0.9), rgba(0,158,158, 0.9)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    height: 72vh;
+}
+
+.display__character {
+    overflow: auto;
+}
+
+.display_character__h3 {
+    margin: 3rem auto 2rem auto;
+}
+
+span:hover {
+    color: rgba(149,69,53, 0.85);
+    cursor: pointer;
+}
+
+.photo {
+    width: 24vh;
+    height: 28vh;
+    background-blend-mode: overlay;
+    background-color:rgb(98, 116, 81);
+    border-radius: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    float: left;
+    margin: 15px 25px;
+    box-shadow: inset 0 0 6px;
+}
+
+.display_episodes {
+    margin: 10px 15px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(125px, 1fr));
+    grid-auto-rows: minmax(100px, auto);
+    gap: 15px;
+    grid-auto-flow: dense;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 15px;
+}
+
+.display_episodes-button {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.button h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: start;
+    margin: 10px 0;
+    letter-spacing: -1px;
+}
+
+.button p {
+    font-size: 2rem;
+    margin: 0;
+    text-align: start;
+}
+
+hr {
+    border: 0.7px solid rgba(149,69,53, 0.8);
+    width: 95%;
+    margin-top: 20vh;
 }

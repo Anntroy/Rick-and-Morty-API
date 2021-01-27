@@ -12,14 +12,21 @@
         <figure class="header__figure"></figure>
     </header>
     <main class="main">
-        <aside class="aside" id="aside">
-            <ul id="episodesList" class="aside__ul"></ul>
+        <aside>
+            <button class="button header__button" id="startButton"></button>
         </aside>
-        <section class="section" id="section"></section>
+        <aside class="aside hidden" id="episodesList"></aside>
+        <section class="section hidden" id="section"></section>
+        <section class="section sectionCharacter hidden" id="sectionCharacter"></section>
+        <section class="section hidden" id="sectionLocation">
+
+        </section>
     </main>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="js/episodes.js"></script>
     <script src="js/variables.js"></script>
     <script src="js/characters.js"></script>
+    <script src="js/character.js"></script>
+    <script src="js/location.js"></script>
 </body>
 </html>
